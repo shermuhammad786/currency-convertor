@@ -10,8 +10,8 @@ export class ConvertDto {
 
   @ApiProperty({
     description: 'Target currency code to which the amount will be converted',
-    example: 'PKR',
-    default: 'PKR',
+    example: 'INR',
+    default: 'INR',
   })
   to: string;
 
