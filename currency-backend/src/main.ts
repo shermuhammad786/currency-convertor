@@ -8,15 +8,16 @@ async function bootstrap() {
   app.enableCors({ origin: '*' });
 
   // 🔹 Swagger config
-  const config = new DocumentBuilder()
-    .setTitle('Currency Converter API')
-    .setDescription('NestJS backend for FreeCurrencyAPI')
-    .setVersion('1.0')
-    .build();
+  if (process.env.NODE_ENV !== 'production') {
+    const config = new DocumentBuilder()
+      .setTitle('Currency API')
+      .setDescription('Currency Converter APIs')
+      .setVersion('1.0')
+      .build();
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
-
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('swagger', app, document);
+  }
   await app.listen(3000);
 }
 bootstrap();
