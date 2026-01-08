@@ -5,10 +5,11 @@ import { ConvertDto } from './dto/convert.dto';
 
 @Injectable()
 export class CurrencyService {
-  private baseUrl = 'https://api.freecurrencyapi.com/v1';
+  private baseUrl : string | undefined 
   private apiKey: string | undefined;
 
   constructor(private configService: ConfigService) {
+    this.baseUrl = this.configService.get<string>('CURRENCY_API_URL')
     this.apiKey = this.configService.get<string>('CURRENCY_API_KEY');
   }
 
