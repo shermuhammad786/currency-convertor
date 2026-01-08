@@ -10,9 +10,7 @@ async function bootstrap() {
       'http://localhost:5173',
       'https://currency-convertor-6xwp.vercel.app'
     ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type, Authorization',
-    credentials: false,
+    credentials: true,
   });
 
   // 🔹 Swagger config
