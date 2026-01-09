@@ -15,11 +15,6 @@ async function bootstrap() {
 
   });
 
-   // 🚨 THIS LINE FIXES OPTIONS 404 ON VERCEL
-  app.getHttpAdapter().getInstance().options('*', (_, res) => {
-    res.sendStatus(200);
-  });
-
   // 🔹 Swagger config
   if (process.env.NODE_ENV !== 'production') {
     const config = new DocumentBuilder()
