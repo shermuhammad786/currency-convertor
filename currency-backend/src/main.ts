@@ -7,10 +7,17 @@ async function bootstrap() {
 
    app.enableCors({
     origin: [
-      'http://localhost:5173',
-      'https://currency-convertor-6xwp.vercel.app'
+      "http://localhost:5173",
+      "https://currency-convertor-6xwp.vercel.app"
     ],
-    credentials: true,
+   methods: 'GET,POST,OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization',
+
+  });
+
+   // 🚨 THIS LINE FIXES OPTIONS 404 ON VERCEL
+  app.getHttpAdapter().getInstance().options('*', (_, res) => {
+    res.sendStatus(200);
   });
 
   // 🔹 Swagger config
