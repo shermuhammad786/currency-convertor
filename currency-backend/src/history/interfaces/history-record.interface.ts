@@ -6,6 +6,6 @@ export interface HistoryRecord {
   amount: number;
   rate: number;
   result: number;
-  timestamp: string;
+  date: string;
 }
     
