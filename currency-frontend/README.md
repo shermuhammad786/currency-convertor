@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# 🎨 Currency Converter – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend** of the Currency Converter application, built using **React + TypeScript** with a **mobile-first design** approach.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
 
-## React Compiler
+- React 18
+- TypeScript
+- Redux Toolkit
+- Axios
+- Bootstrap 5
+- Vite
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## 📂 Folder Structure (Simplified)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+src/
+├── app/              # Redux store & hooks
+├── features/         # Currency feature (slice, components, API)
+├── layouts/          # Mobile-first layout
+├── pages/            # App pages
+├── services/         # Axios & storage helpers
+├── styles/           # Global & mobile CSS
+├── utils/            # Helpers (date, format)
+├── App.tsx
+└── main.tsx
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+🌐 Environment Variables
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Create a .env file:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+VITE_API_BASE_URL= add you backend url 
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+⚠️ .env is ignored by git.
+.env.example is committed for reference.
+
+App will run at:
+
+http://localhost:5173
+
+
+API Flow
+
+Frontend → Backend (NestJS)
+
+Backend → FreeCurrencyAPI
+
+Frontend never accesses external API directly
+
+📱 UI Highlights
+
+Fully responsive (mobile-first)
+
+Dropdown-based currency selection
+
+Loader on API calls
+
+Clean, minimal UX
+
+🚀 Deployment
+
+Hosted on Vercel
+
+Auto-deploys on push to main
+
+👨‍💻 Author
+
+Sher Muhammad
